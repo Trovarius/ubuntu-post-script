@@ -60,8 +60,9 @@ sudo apt-get install -y vim kdiff3 code  # or code-insiders
 header_mensagem "Symlink to dotfiles"
 rm ~/.aliases
 rm ~/.functions
-ln -sv ./dotfiles/.aliases ~
-ln -sv ./dotfiles/.functions ~
+cp -R ./.dotfiles/ ~/.dotfiles/ 
+ln -sv ~/.dotfiles/.aliases ~
+ln -sv ~/.dotfiles/.functions ~
 
 header_mensagem "Done"
 
