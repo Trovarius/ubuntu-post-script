@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Luiz Fernando de Lima Pereira
+#	email = luiz.pereira@minutrade.com
+[user]
+	name = Luiz Fernando de Lima Pereira
+	email = luiz.pereira@minutrade.com
+[merge]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = kdiff3
+    trustExitCode = false
+[diff]
+    guitool = kdiff3
+[difftool "kdiff3"]
+    path = kdiiff3ls
+    trustExitCode = false

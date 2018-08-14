@@ -21,7 +21,7 @@ header_mensagem "Ubuntu post-install script"
 # Install base software
 header_mensagem "Instaling base libraries"
 apt-get install -y build-essential libssl-dev 
-apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl
+apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl zsh feh htop rofi
 
 #Updating repository
 header_mensagem "Updating repository"
@@ -35,7 +35,7 @@ apt-get update -qq
 
 # Install nvm
 header_mensagem "Instaling npm via nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
+#curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
 
 
 # Install development softwares
@@ -48,13 +48,13 @@ git config --global user.name "Trovarius"
 
 # Install node and npm
 header_mensagem "Instaling npm via nvm"
-chmod +x ~/.nvm/nvm.sh 
-~/.nvm/nvm.sh install node
-~/.nvm/nvm.sh use node
+#chmod +x ~/.nvm/nvm.sh 
+#~/.nvm/nvm.sh install node
+#~/.nvm/nvm.sh use node
 
 # Install npm global packages
 header_mensagem "Install npm global packages : nodemon, mocha, chai"
-npm install -g nodemon mocha chai typescript
+#npm install -g nodemon mocha chai typescript
 
 # Install vscode
 header_mensagem "Install VSCode"
@@ -77,20 +77,22 @@ code --install-extension xabikos.JavaScriptSnippets
 code --install-extension yzhang.markdown-all-in-one
 
 # Symlink to dotfiles
-header_mensagem "Symlink to dotfiles"
+header_mensagem "Coping config files"
 rm -f ~/.dotfiles
-cp ./.dotfiles ~/.dotfiles
+cp -r ./ ~/
 
-echo "if [ -f ~/.dotfiles/.aliases ]; then
-    . ~/.dotfiles/.aliases
+echo "if [ -f ~/.dotfiles/aliases ]; then
+    . ~/.dotfiles/aliases
 fi" >> ~/.bashrc
 
-echo "if [ -f ~/.dotfiles/.functions ]; then
-    . ~/.dotfiles/.functions
+echo "if [ -f ~/.dotfiles/functions ]; then
+    . ~/.dotfiles/functions
 fi" >> ~/.bashrc
 
+echo "exec zsh" >> ~/.bashrc
 header_mensagem "Creating workspace"
 mkdir ~/workspace
+
 
 header_mensagem "Done"
 
