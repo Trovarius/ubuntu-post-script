@@ -1,8 +1,9 @@
 # Shortcuts
 
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.bashrc"
 alias _="sudo"
 alias rr="rm -rf"
+alias ws="cd ~/workspace"
 
 # Default options
 
@@ -60,20 +61,6 @@ alias nup="npm update"
 alias nri="rm -r node_modules && npm install"
 alias ncd="npm-check -su"
 
-#git
-alias g="git"
-alias gcl='git clone'
-alias gs='git status'
-alias gck='git checkout'
-alias gckm='git checkout master'
-alias glg='git log --graph --pretty=oneline --abbrev-commit'
-alias glg2="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-alias gcam="git commit -S -am"
-alias gpsh='git push'
-alias gmerge="git merge"
-alias gfv='git fetch --all --prune --verbose'
-alias gclean='git reset HEAD'
-
 # Network
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -92,4 +79,19 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias his="historie"
 alias quit="exit"
 alias week="date +%V"
-alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+alias speedtest="curl -s /dev/null http://speed.transip.nl/100mb.bin"
+alias weather="curl -s wttr.in "
+
+# git
+alias g="git"
+alias gcl='git clone'
+alias gs='git status'
+alias gck='git checkout'
+alias gckm='git checkout master'
+alias glg='git log --graph --pretty=oneline --abbrev-commit'
+alias glg2="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gcam="git commit -am"
+alias gpsh='git push'
+alias gmerge="git merge"
+alias gfv='git fetch --all --prune --verbose'
+alias gclean='git reset HEAD'# git
