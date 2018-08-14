@@ -89,5 +89,8 @@ echo "if [ -f ~/.dotfiles/.functions ]; then
     . ~/.dotfiles/.functions
 fi" >> ~/.bashrc
 
+header_mensagem "Creating workspace"
+mkdir ~/workspace
+
 header_mensagem "Done"
 
