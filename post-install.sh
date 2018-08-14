@@ -93,6 +93,9 @@ echo "exec zsh" >> ~/.bashrc
 header_mensagem "Creating workspace"
 mkdir ~/workspace
 
+header_mensagem "Transparency on terminal"
+gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool true
+
 
 header_mensagem "Done"
 
