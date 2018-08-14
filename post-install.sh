@@ -41,6 +41,7 @@ header_mensagem "Instaling npm via nvm"
 # Install development softwares
 header_mensagem "Instaling development softwares: git, docker, docker.io " 
 apt-get install -y git docker.io
+sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
 git config --global user.email "tordek.coast@gmail.com"
 git config --global user.name "Trovarius"
@@ -76,10 +77,19 @@ code --install-extension waderyan.nodejs-extension-pack
 code --install-extension xabikos.JavaScriptSnippets
 code --install-extension yzhang.markdown-all-in-one
 
+header_mensagem "INstall OhMyZsh"
+rm -rf ~/.oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+
+
 # Symlink to dotfiles
 header_mensagem "Coping config files"
-rm -f ~/.dotfiles
-cp -r ./ ~/
+rm -rf ~/.dotfiles
+cp -arf ./ ~/.
 
 echo "if [ -f ~/.dotfiles/aliases ]; then
     . ~/.dotfiles/aliases

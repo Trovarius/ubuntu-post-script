@@ -11,11 +11,7 @@ alias rsync="rsync -vh"
 alias json="json -c"
 alias psgrep="psgrep -i"
 
-is-executable hub && eval "$(hub alias -s)" # alias git=hub
-
 # Global aliases
-
-
 
 # List declared aliases, functions, paths
 
@@ -62,7 +58,7 @@ alias his="historie"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="curl -s /dev/null http://speed.transip.nl/100mb.bin"
-alias weather="curl -s wttr.in "
+alias weather="curl -s wttr.in/sa_paulo "
 
 # git
 alias g="git"
@@ -76,4 +72,4 @@ alias gcam="git commit -am"
 alias gpsh='git push'
 alias gmerge="git merge"
 alias gfv='git fetch --all --prune --verbose'
-alias gclean='git reset HEAD'# git
+alias gclean='git reset HEAD'
