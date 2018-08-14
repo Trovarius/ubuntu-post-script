@@ -4,6 +4,7 @@ alias reload="source ~/.bashrc"
 alias _="sudo"
 alias rr="rm -rf"
 alias ws="cd ~/workspace"
+alias home ="cd ~/"
 
 # Default options
 
