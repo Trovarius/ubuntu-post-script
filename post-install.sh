@@ -20,46 +20,36 @@ header_mensagem "Ubuntu post-install script"
 
 # Install base software
 header_mensagem "Instaling base libraries"
-apt-get install -y build-essential libssl-dev 
-apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl zsh feh htop rofi
+sudo apt-get install -y build-essential libssl-dev 
+sudo apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl zsh feh htop rofi
 
 #Updating repository
 header_mensagem "Updating repository"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # Update system
 header_mensagem "Update system with apt-get update"
-apt-get update -qq
+sudo apt-get update -qq
 
 # Install nvm
 header_mensagem "Instaling npm via nvm"
-#curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
 
 
 # Install development softwares
 header_mensagem "Instaling development softwares: git, docker, docker.io " 
-apt-get install -y git docker.io
-sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo apt-get install -y git docker.io
+curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
 git config --global user.email "tordek.coast@gmail.com"
 git config --global user.name "Trovarius"
 
 
-# Install node and npm
-header_mensagem "Instaling npm via nvm"
-#chmod +x ~/.nvm/nvm.sh 
-#~/.nvm/nvm.sh install node
-#~/.nvm/nvm.sh use node
-
-# Install npm global packages
-header_mensagem "Install npm global packages : nodemon, mocha, chai"
-#npm install -g nodemon mocha chai typescript
-
 # Install vscode
 header_mensagem "Install VSCode"
-apt-get install -y vim kdiff3 code  # or code-insiders
+sudo apt-get install -y vim kdiff3 code  # or code-insiders
 
 # Install vscode plugin
 code --install-extension christian-kohler.npm-intellisense
