@@ -98,10 +98,9 @@ echo "exec zsh" >> ~/.bashrc
 header_mensagem "Creating workspace"
 mkdir ~/workspace
 
-header_mensagem "Transparency on terminal"
-gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool true
 
+header_mensagem "Fianlizado - o seu terminal irá reiniciar em 3 segundos com as novas configurações."
 
-header_mensagem "Done"
+sleep 3s
 
 source ~/.bashrc
