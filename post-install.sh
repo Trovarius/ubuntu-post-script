@@ -33,18 +33,20 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 header_mensagem "Update system with apt-get update"
 sudo apt-get update -qq
 
-# Install nvm
-header_mensagem "Instaling npm via nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
-
-
 # Install development softwares
 header_mensagem "Instaling development softwares: git, docker, docker.io " 
 sudo apt-get install -y git docker.io
 curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
-git config --global user.email "tordek.coast@gmail.com"
-git config --global user.name "Trovarius"
+
+echo -e "Por favor entrar com seu e-mail para configuração do git:"
+read  git_email
+
+echo -e "Por favor entrar com seu usuário para configuração do git:"
+read  git_usuario
+
+git config --global user.email "$git_email"
+git config --global user.name "$git_usuario"
 
 
 # Install vscode
@@ -58,6 +60,8 @@ code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eg2.tslint
 code --install-extension eg2.vscode-npm-script
+code --install-extension HookyQR.beautify
+code --install-extension humao.rest-client
 code --install-extension jasonnutter.search-node-modules
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension msjsdiag.debugger-for-chrome
@@ -73,8 +77,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-
-
+# Install nvm
+header_mensagem "Instaling npm via nvm"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
 
 # Symlink to dotfiles
 header_mensagem "Coping config files"
@@ -99,3 +104,4 @@ gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool true
 
 header_mensagem "Done"
 
+source ~/.bashrc
