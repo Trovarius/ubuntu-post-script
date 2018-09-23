@@ -81,6 +81,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 header_mensagem "Instaling npm via nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sudo bash
 
+#install conky system monitor
+header_mensagem "Instaling clanky"
+sudo apt install conky-all
+
 # Symlink to dotfiles
 header_mensagem "Coping config files"
 rm -rf ~/.dotfiles
