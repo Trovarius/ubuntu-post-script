@@ -21,7 +21,7 @@ header_mensagem "Ubuntu post-install script"
 # Install base software
 header_mensagem "Instaling base libraries"
 sudo apt-get install -y build-essential libssl-dev 
-sudo apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl zsh feh htop rofi
+sudo apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext unzip curl zsh feh htop rofi tree
 
 #Updating repository
 header_mensagem "Updating repository"
