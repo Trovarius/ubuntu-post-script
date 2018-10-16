@@ -65,7 +65,6 @@ plugins=(
   git
   go
   dotenv
-  npm
   docker
   aws
   colorize
@@ -76,7 +75,6 @@ plugins=(
   ubuntu
   zsh-autosuggestions
   zsh-syntax-highlighting
-  nvm
 )
 
 source $ZSH/oh-my-zsh.sh
